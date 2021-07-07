@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compare</title>
+</head>
+
+<body>
+    ENTER NMIT STUDENTS MARKS : <input type="text" id="nmit" placeholder="enter marks seperated by space " width="200px">
+    <br> ENTER MIT STUDENTS MARKS : <input type="text" id="mit" placeholder="enter marks seperated by space " width="200px">
+    <br>
+    <button onclick="myfunc()">check</button>
+    <p id="dem"></p>
+
+    <p id="dem1"></p>
+
+
+    <p id="demo"></p>
+
+
+    <script>
+        function myfunc() {
+            var x = document.getElementById("nmit").value;
+            var y = document.getElementById("mit").value;
+
+            var n = x.split(" ");
+            var m = y.split(" ");
+            console.log(n);
+            var nmit = n;
+            var mit = m;
+            var sum1 = 0;
+            var sum2 = 0;
+            var i;
+            var cnmit = 0;
+            var cmit = 0;
+            for (i = 0; i < nmit.length; i++) {
+                if (nmit[i] > 30) {
+                    cnmit = cnmit + 1;
+                }
+                if (mit[i] > 30) {
+                    cmit = cmit + 1;
+                }
+                sum1 += nmit[i];
+                sum2 += mit[i];
+            }
+            console.log(cnmit);
+            console.log(cmit);
+            var passnmit = (cnmit * 100) / nmit.length;
+            var failnmit = ((nmit.length - cnmit) * 100) / nmit.length;
+            var passmit = (cmit * 100) / nmit.length;
+            var failmit = ((nmit.length - cmit) * 100) / nmit.length;
+            console.log(passnmit);
+            console.log(failnmit);
+            console.log(passmit);
+            console.log(failmit);
+            var xnmit = "Passing % of nmit : " + passnmit + "   " + "  " + "failure % of nmit : " + failnmit;
+            var xmit = "Passing % of mit : " + passmit + "   " + "failure % of mit : " + failmit;
+            console.log(xnmit);
+            console.log(xmit);
+            document.getElementById("dem").innerHTML = xnmit;
+            document.getElementById("dem1").innerHTML = xmit;
+
+
+            if (passnmit > passmit) {
+                document.getElementById("demo").innerHTML = "NMIT has better passing percentage";
+            } else if (passnmit < passmit) {
+                document.getElementById("demo").innerHTML = "MIT hass better passing percentage";
+            } else {
+                document.getElementById("demo").innerHTML = "Both college have same passing percentage";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
